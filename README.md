@@ -1,11 +1,12 @@
 # AgenticAI
 
-AgenticAI is an AI-powered assistant that doesn’t just chat — it **plans, calls tools, and takes real actions** on your behalf.  
-Instead of manually jumping between apps, APIs, and forms, you tell AgenticAI what you want, and it figures out **how** to get it done.
+AgenticAI is a design write-up for an AI agent that plans, calls tools, and takes actions on a user's behalf instead of only replying with text.
+
+**Status:** design notes only. This repository contains the architecture description, a sequence diagram, and a PDF (`How the Agent Knows What the User Wants.pdf`). It does not contain a working implementation.
 
 ---
 
-## 💡 What Is an AI Agent?
+## What Is an AI Agent?
 
 A traditional chatbot only responds with text.  
 An **AI agent** goes further:
@@ -24,7 +25,7 @@ In other words, an AI agent is like a smart digital intern that can:
 
 ---
 
-## ⚙️ How AgenticAI Works
+## How AgenticAI Works
 
 At a high level, AgenticAI is built around three core pieces:
 
@@ -47,7 +48,7 @@ At a high level, AgenticAI is built around three core pieces:
      - Reading/writing from databases.
      - Triggering webhooks or background jobs.
 
-### 🔁 Typical Flow
+### Typical Flow
 
 1. **User** sends a request in natural language.  
 2. **UI** sends the request to the **Agent Orchestrator**.  
@@ -66,9 +67,9 @@ At a high level, AgenticAI is built around three core pieces:
 
 ---
 
-## 🚀 Taking Action (Examples)
+## Example Actions
 
-AgenticAI can be wired to many different actions, such as:
+The design supports actions such as:
 
 - Creating or updating records via REST APIs.
 - Scheduling or modifying calendar events.
@@ -82,7 +83,7 @@ Because the agent uses tools instead of hard-coded flows, you can **add new capa
 
 ---
 
-## 🧱 High-Level Architecture
+## High-Level Architecture
 
 - **Client (Web / App)**  
   Displays chat UI, sends user messages, and renders results.
@@ -107,9 +108,9 @@ See the **PlantUML sequence diagram** below for a visual of this flow.
 
 ---
 
-## 📈 Sequence Diagram
+## Sequence Diagram
 
-The following PlantUML describes the request → reasoning → tool call → action → response loop used by AgenticAI.
+The following PlantUML describes the request, reasoning, tool call, action, and response loop.
 
 ```plantuml
 @startuml
@@ -140,4 +141,4 @@ Orchestrator -> UI : 11. Send final response\n(status, details, confirmation)
 UI -> User : 12. Display result\n("Delivery scheduled for 7:00 pm")
 
 @enduml
-
+```
